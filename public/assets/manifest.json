@@ -1,0 +1,76 @@
+{
+  "concept": "Concept Cafe - illustrated latte art",
+  "palette": {
+    "paper": "#F7F3EE",
+    "ink": "#33302C",
+    "matcha": "#52A04D",
+    "accent": "#52A04D"
+  },
+  "notes": {
+    "liquid": "Fraction of the cup image where painting is allowed",
+    "hotspot": "Fraction of the cursor sprite that sits under the pointer"
+  },
+  "assets": {
+    "cups/coffee-cup": {
+      "file": "assets/cups/coffee-cup.png",
+      "width": 520,
+      "height": 520,
+      "liquid": {
+        "cx": 0.4297,
+        "cy": 0.4983,
+        "r": 0.3621
+      }
+    },
+    "cups/matcha-cup": {
+      "file": "assets/cups/matcha-cup.png",
+      "width": 520,
+      "height": 520,
+      "liquid": {
+        "cx": 0.4242,
+        "cy": 0.499,
+        "r": 0.3633
+      }
+    },
+    "cursor/pitcher-idle": {
+      "file": "assets/cursor/pitcher-idle.png",
+      "width": 200,
+      "height": 200,
+      "hotspot": [
+        0.14,
+        0.18
+      ]
+    },
+    "cursor/pitcher-hover": {
+      "file": "assets/cursor/pitcher-hover.png",
+      "width": 200,
+      "height": 200,
+      "hotspot": [
+        0.15,
+        0.21
+      ]
+    },
+    "cursor/pitcher-pouring": {
+      "file": "assets/cursor/pitcher-pouring.png",
+      "width": 200,
+      "height": 200,
+      "hotspot": [
+        0.17,
+        0.78
+      ]
+    },
+    "cursor/toothpick": {
+      "file": "assets/cursor/toothpick.png",
+      "width": 200,
+      "height": 200,
+      "hotspot": [
+        0.1,
+        0.9
+      ]
+    },
+    "brushes/foam-stamp": {
+      "file": "assets/brushes/foam-stamp.png",
+      "width": 256,
+      "height": 256
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept Café — Latte Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <p class="eyebrow">Concept Café</p>
+      <h1>Pour your latte art</h1>
+      <p class="sub">Pour microfoam, then drag the toothpick through it to pull real latte-art shapes.</p>
+    </header>
+
+    <div class="toolbar">
+      <div class="segmented" role="group" aria-label="Choose cup">
+        <button type="button" class="seg cup-btn active" data-cup="coffee" aria-pressed="true">Coffee</button>
+        <button type="button" class="seg cup-btn" data-cup="matcha" aria-pressed="false">Matcha</button>
+      </div>
+
+      <div class="segmented" role="group" aria-label="Choose tool">
+        <button type="button" class="seg tool-btn active" data-tool="pour" aria-pressed="true">Pourer</button>
+        <button type="button" class="seg tool-btn" data-tool="pick" aria-pressed="false">Toothpick</button>
+      </div>
+
+      <div class="slider">
+        <label for="size" id="size-label">Pour</label>
+        <input id="size" type="range" min="16" max="64" value="34" />
+      </div>
+
+      <button type="button" id="clear" class="ghost">Clear foam</button>
+    </div>
+
+    <div class="stage" id="stage">
+      <img id="cup" class="cup-base" src="assets/cups/coffee-cup.png" alt="Cup of coffee, top view" draggable="false" />
+      <canvas id="draw"></canvas>
+      <img id="cursor" class="tool-cursor" src="assets/cursor/pitcher-idle.png" alt="" draggable="false" />
+    </div>
+
+    <p class="hint" id="hint">Hold to pour · Switch to the toothpick to drag the foam</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

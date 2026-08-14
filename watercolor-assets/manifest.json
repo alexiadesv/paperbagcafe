@@ -1,0 +1,271 @@
+{
+  "name": "Concept Cafe watercolor asset pack",
+  "format": "transparent PNG",
+  "canvasSize": 512,
+  "assets": {
+    "cursors/pourer-idle": {
+      "file": "cursors/pourer-idle.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pourers-sheet.png"
+    },
+    "cursors/pourer-hover": {
+      "file": "cursors/pourer-hover.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pourers-sheet.png"
+    },
+    "cursors/pourer-pouring": {
+      "file": "cursors/pourer-pouring.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pourers-sheet.png"
+    },
+    "tart/plain-custard-tart": {
+      "file": "tart/plain-custard-tart.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-tart-assets-sheet.png"
+    },
+    "tart-toppings/sliced-strawberry": {
+      "file": "tart-toppings/sliced-strawberry.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-tart-assets-sheet.png"
+    },
+    "tart-toppings/blueberry": {
+      "file": "tart-toppings/blueberry.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-tart-assets-sheet.png"
+    },
+    "tart-toppings/mandarin-segment": {
+      "file": "tart-toppings/mandarin-segment.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-tart-assets-sheet.png"
+    },
+    "bread/untoasted-paw-pressed": {
+      "file": "bread/untoasted-paw-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/untoasted-heart-pressed": {
+      "file": "bread/untoasted-heart-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/untoasted-star-pressed": {
+      "file": "bread/untoasted-star-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/toasted-paw-pressed": {
+      "file": "bread/toasted-paw-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/toasted-heart-pressed": {
+      "file": "bread/toasted-heart-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/toasted-star-pressed": {
+      "file": "bread/toasted-star-pressed.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-bread-stamps-sheet.png"
+    },
+    "bread/plain-white-bread": {
+      "file": "bread/plain-white-bread.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-stationery-sheet.png"
+    },
+    "stationery/blank-letter": {
+      "file": "stationery/blank-letter.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-stationery-sheet.png"
+    },
+    "stationery/open-pink-envelope": {
+      "file": "stationery/open-pink-envelope.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-stationery-sheet.png"
+    },
+    "stationery/letter-in-envelope": {
+      "file": "stationery/letter-in-envelope.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-stationery-sheet.png"
+    },
+    "bread/egg-paw": {
+      "file": "bread/egg-paw.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-untoasted-egg-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "egg"
+    },
+    "bread/egg-heart": {
+      "file": "bread/egg-heart.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-untoasted-egg-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "egg"
+    },
+    "bread/egg-star": {
+      "file": "bread/egg-star.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-untoasted-egg-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "egg"
+    },
+    "bread/untoasted-chocolate-paw": {
+      "file": "bread/untoasted-chocolate-paw.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "chocolate"
+    },
+    "bread/untoasted-chocolate-heart": {
+      "file": "bread/untoasted-chocolate-heart.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "chocolate"
+    },
+    "bread/untoasted-chocolate-star": {
+      "file": "bread/untoasted-chocolate-star.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "untoasted",
+      "filling": "chocolate"
+    },
+    "bread/toasted-chocolate-paw": {
+      "file": "bread/toasted-chocolate-paw.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "toasted",
+      "filling": "chocolate"
+    },
+    "bread/toasted-chocolate-heart": {
+      "file": "bread/toasted-chocolate-heart.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "toasted",
+      "filling": "chocolate"
+    },
+    "bread/toasted-chocolate-star": {
+      "file": "bread/toasted-chocolate-star.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-chocolate-bread-sheet.png",
+      "breadState": "toasted",
+      "filling": "chocolate"
+    },
+    "cups/pink-empty": {
+      "file": "cups/pink-empty.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pink-cups-refined-sheet.png",
+      "cupColor": "pink"
+    },
+    "cups/pink-coffee": {
+      "file": "cups/pink-coffee.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pink-cups-refined-sheet.png",
+      "cupColor": "pink"
+    },
+    "cups/pink-matcha": {
+      "file": "cups/pink-matcha.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pink-cups-refined-sheet.png",
+      "cupColor": "pink"
+    },
+    "cups/pink-ube": {
+      "file": "cups/pink-ube.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pink-cups-refined-sheet.png",
+      "cupColor": "pink"
+    },
+    "tart-toppings/whipped-cream": {
+      "file": "tart-toppings/whipped-cream.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-whipped-cream-opaque.png"
+    },
+    "tart-toppings/sliced-mango": {
+      "file": "tart-toppings/sliced-mango.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-single-mango-slice.png"
+    },
+    "packaging/writable-name-tag": {
+      "file": "packaging/writable-name-tag.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-pink-name-sticker.png"
+    },
+    "packaging/paper-bag-brown": {
+      "file": "packaging/paper-bag-brown.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-brown-paper-bag.png"
+    },
+    "cursors/latte-toothpick": {
+      "file": "cursors/latte-toothpick.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-latte-toothpick.png",
+      "hotspot": [
+        0.1,
+        0.9
+      ]
+    },
+    "bread-stamps/paw": {
+      "file": "bread-stamps/paw.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-solid-metal-stamps.png",
+      "solidStampFace": true
+    },
+    "bread-stamps/heart": {
+      "file": "bread-stamps/heart.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-solid-metal-stamps.png",
+      "solidStampFace": true
+    },
+    "bread-stamps/star": {
+      "file": "bread-stamps/star.png",
+      "width": 512,
+      "height": 512,
+      "sourceSheet": "watercolor-solid-metal-stamps.png",
+      "solidStampFace": true
+    },
+    "backgrounds/blank-watercolor-paper": {
+      "file": "backgrounds/blank-watercolor-paper.png",
+      "width": 1024,
+      "height": 1024,
+      "transparent": false,
+      "usage": "seamless background texture"
+    }
+  }
+}

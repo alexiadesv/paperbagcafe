@@ -1,0 +1,4 @@
+project_id = "concept-cafe"
+
+[functions.open-package]
+verify_jwt = false
