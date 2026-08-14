@@ -1,7 +1,4 @@
-# Concept Café Blind Box
-
-A mobile-first watercolor café where someone can make several tiny treats, seal
-them into a paper bag, and send a private blind-box link to a friend.
+# Blind Box Café 
 
 ## Features
 
