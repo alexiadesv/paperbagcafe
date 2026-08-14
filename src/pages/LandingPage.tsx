@@ -21,7 +21,10 @@ export function LandingPage() {
       </div>
       <section className="landing-card">
         <p className="kicker">a tiny something for someone</p>
-        <h1>Concept Café</h1>
+        <h1>
+          Paper Bag
+          <span className="landing-title-line">Café</span>
+        </h1>
         <p className="landing-script">make your blind box</p>
         <button className="primary-button ribbon-button" onClick={begin}>
           begin making

@@ -42,7 +42,9 @@ export function toastAsset(
   filling: ToastFilling,
   toasted: boolean,
 ) {
-  if (filling === "egg") return asset(`bread/egg-${shape}.png`);
+  if (filling === "egg") {
+    return asset(`bread/${toasted ? "toasted" : "untoasted"}-egg-${shape}.png`);
+  }
   if (filling === "chocolate") {
     return asset(`bread/${toasted ? "toasted" : "untoasted"}-chocolate-${shape}.png`);
   }

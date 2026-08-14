@@ -53,7 +53,23 @@ export function MakePage() {
                 className="mini-button"
                 aria-hidden={!showAction}
                 tabIndex={showAction ? 0 : -1}
-                onClick={() => navigate(`/make/${key}`)}
+                onClick={() => {
+                  if (completed && key === "latte") {
+                    dispatch({
+                      type: "activity",
+                      key: "latte",
+                      value: { snapshot: undefined, foamSnapshot: undefined },
+                    });
+                  }
+                  if (completed && key === "tart") {
+                    dispatch({
+                      type: "activity",
+                      key: "tart",
+                      value: { toppings: [], snapshot: undefined },
+                    });
+                  }
+                  navigate(`/make/${key}`);
+                }}
               >
                 {completed ? "edit" : "make"}
               </button>

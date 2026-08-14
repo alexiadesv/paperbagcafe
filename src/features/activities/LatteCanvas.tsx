@@ -46,7 +46,6 @@ export function LatteCanvas({
   const [size, setSize] = useState(34);
   const [entered, setEntered] = useState(false);
   const [hoveringLiquid, setHoveringLiquid] = useState(false);
-  const entrancePlayed = useRef(false);
   const previousDrink = useRef(drink);
 
   const dpr = () => Math.min(window.devicePixelRatio || 1, 2);
@@ -80,8 +79,10 @@ export function LatteCanvas({
 
   useEffect(() => {
     resize();
+    const entranceFrame = window.requestAnimationFrame(() => setEntered(true));
     window.addEventListener("resize", resize);
     return () => {
+      window.cancelAnimationFrame(entranceFrame);
       window.removeEventListener("resize", resize);
       if (holdTimer.current !== null) window.clearInterval(holdTimer.current);
     };
@@ -318,12 +319,6 @@ export function LatteCanvas({
     onComplete(output.toDataURL("image/webp", 0.86), foamSnapshot);
   };
 
-  const playEntrance = () => {
-    if (entrancePlayed.current) return;
-    entrancePlayed.current = true;
-    setEntered(true);
-  };
-
   return (
     <div className="latte-maker">
       <div className="choice-row" aria-label="Choose a drink">
@@ -332,7 +327,6 @@ export function LatteCanvas({
             className={drink === value ? "chip active" : "chip"}
             onClick={() => {
               if (value !== drink) onDrinkChange(value);
-              playEntrance();
             }}
             key={value}
           >
@@ -344,7 +338,6 @@ export function LatteCanvas({
         <div
           className={`latte-stage ${entered ? "cup-entered" : ""}`}
           ref={stageRef}
-          onPointerEnter={playEntrance}
           onPointerMove={moveCursor}
           onPointerDown={start}
           onPointerUp={stop}
@@ -355,7 +348,7 @@ export function LatteCanvas({
           }}
         >
           <img
-            className={`stage-base ${entered ? "cup-c-motion" : ""}`}
+            className={`stage-base ${entered ? "cup-c-motion" : "cup-awaiting-entry"}`}
             src={cupAssets[drink]}
             alt={`${drink} latte cup`}
           />

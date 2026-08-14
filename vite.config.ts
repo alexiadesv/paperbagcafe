@@ -3,6 +3,10 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: 4173,
+    strictPort: false,
+  },
   test: {
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",

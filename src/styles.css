@@ -234,9 +234,13 @@ legend {
 .landing-card h1 {
   margin: .25rem 0 0;
   font-family: "Gaegu", cursive;
-  font-size: clamp(4rem, 13vw, 9rem);
-  line-height: .83;
+  font-size: clamp(3.6rem, 12vw, 8.5rem);
+  line-height: .86;
   letter-spacing: -.045em;
+}
+.landing-title-line {
+  display: block;
+  margin-top: clamp(0.35rem, 2.5vw, 1.1rem);
 }
 .landing-script { margin: .8rem 0 2.4rem; color: #b77b85; font-family: "Gaegu", cursive; font-size: clamp(1.5rem, 4vw, 2.4rem); }
 .ribbon-button { min-width: 190px; }
@@ -388,8 +392,16 @@ legend {
   pointer-events: none;
   filter: drop-shadow(0 4px 5px rgba(70, 49, 42, .16));
 }
-.cup-c-motion { animation: cup-c-motion 1.15s cubic-bezier(.2,.7,.15,1) both; }
+.cup-awaiting-entry { opacity: 0; }
+.cup-c-motion {
+  animation: cup-c-motion .82s linear both;
+  will-change: transform, opacity;
+}
 .tart-stage { cursor: crosshair; }
+.tart-spin-in {
+  animation: tart-spin-in .72s cubic-bezier(.2, .8, .25, 1) both;
+  will-change: transform;
+}
 .placed-topping { position: absolute; z-index: 2; width: 23%; pointer-events: none; }
 .topping-cursor {
   position: absolute;
@@ -415,7 +427,17 @@ legend {
 }
 .topping img { width: 100%; height: 100%; object-fit: contain; }
 .topping.active { border-color: #c98894; background: var(--pink-soft); transform: translateY(-4px); }
-.toast-stage { width: min(420px, 86vw); }
+.toast-stage { width: min(420px, 86vw); position: relative; touch-action: none; }
+.toast-stage--stamping { cursor: none; }
+.toast-change { animation: toast-change .42s cubic-bezier(.2, .75, .25, 1) both; }
+.toast-stamp-cursor {
+  position: absolute;
+  z-index: 5;
+  width: 42%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 9px 8px rgba(50, 40, 38, .25));
+}
 .toasted-egg { filter: sepia(.25) saturate(1.16) brightness(.93); }
 .pressing-stamp {
   position: absolute;
@@ -427,30 +449,147 @@ legend {
   transition: top .22s ease-in, opacity .12s ease;
   filter: drop-shadow(0 9px 8px rgba(50, 40, 38, .25));
 }
-.pressing-stamp.down { top: 21%; opacity: 1; animation: stamp-press .43s ease both; }
-.toast-maker fieldset { width: min(520px, 100%); }
-.ruled-paper {
-  width: min(680px, 95vw);
-  min-height: 520px;
-  padding: 74px 40px 30px 82px;
-  border: 1px solid #e1d8cf;
-  box-shadow: 0 15px 35px rgba(81, 60, 51, .09);
-  background:
-    linear-gradient(90deg, transparent 66px, #f1acb6 67px, transparent 68px),
-    repeating-linear-gradient(#fff 0 31px, #b8d9ea 32px, #fff 33px);
-  transform: rotate(-.35deg);
+.pressing-stamp--point {
+  left: var(--press-x);
+  top: var(--press-y);
+  transform: translate(-50%, -50%);
 }
-.ruled-paper textarea {
+.pressing-stamp.down { top: 21%; opacity: 1; animation: stamp-press .43s ease both; }
+.pressing-stamp--point.down {
+  top: var(--press-y);
+  animation: stamp-press-point .43s ease both;
+}
+.toast-maker fieldset { width: min(520px, 100%); }
+.letter-maker { overflow: visible; gap: .85rem; }
+.letter-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.css-letter-stage {
+  --letter-scale: min(90vw / 520, 420px / 520);
+  width: calc(520px * var(--letter-scale));
+  height: calc(555px * var(--letter-scale));
+  position: relative;
+}
+.css-letter-scale {
+  width: 520px;
+  height: 555px;
+  transform: scale(var(--letter-scale));
+  transform-origin: top left;
+  perspective: 1600px;
+  padding-top: 215px;
+}
+.css-envelope {
+  position: relative;
+  width: 520px;
+  height: 340px;
+  transform-style: preserve-3d;
+}
+.css-env-back,
+.css-env-front,
+.css-env-flap {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.css-env-back {
+  z-index: 1;
+  box-shadow: 0 20px 30px -24px rgba(70, 80, 78, .75);
+}
+.css-letter-slot {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  width: 460px;
+  top: -440px;
+  bottom: 8px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.css-letter-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px 30px 22px;
+  background-color: #fdfbf8;
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 22.4px,
+      rgba(13, 13, 13, .075) 22.4px 23.4px,
+      transparent 23.4px 32px
+    ),
+    linear-gradient(184deg, #fffefd 0%, #fdfaf6 62%, #f9f4ed 100%);
+  box-shadow:
+    0 -8px 26px -18px rgba(60, 50, 55, .55),
+    inset 7px 0 12px -12px rgba(120, 100, 85, .5),
+    inset -5px 0 10px -12px rgba(120, 100, 85, .35);
+  transform: translateY(104px);
+  transition: transform .8s cubic-bezier(.32, .86, .24, 1);
+}
+.letter-maker.is-open .css-letter-sheet {
+  transform: translateY(-130px);
+  transition-delay: .22s;
+}
+.letter-maker.is-shut .css-letter-sheet {
+  transition-delay: 0s;
+}
+.css-letter-sheet textarea {
   width: 100%;
-  min-height: 400px;
+  height: 326px;
   resize: none;
   border: 0;
   outline: 0;
   background: transparent;
-  color: #554c48;
+  color: #1d1a17;
   font-family: "Gaegu", cursive;
-  font-size: 1.35rem;
-  line-height: 33px;
+  font-size: 30px;
+  line-height: 32px;
+  pointer-events: auto;
+}
+.css-env-front {
+  z-index: 3;
+  clip-path: polygon(0 12%, 50% 59%, 100% 12%, 100% 100%, 0 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5);
+}
+.css-env-flap {
+  z-index: 4;
+  clip-path: polygon(0 0, 100% 0, 100% 12%, 50% 59%, 0 12%);
+  transform-origin: 50% 0;
+  transform: rotateX(0deg) translateZ(1px);
+  box-shadow: 0 6px 14px -10px rgba(60, 70, 68, .7);
+  transition: transform .9s cubic-bezier(.32, .86, .24, 1) .3s;
+}
+.letter-maker.is-open .css-env-flap {
+  transform: rotateX(-172deg) translateZ(1px);
+  transition-delay: 0s;
+}
+.envelope-stocks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: .7rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.envelope-stocks .stock {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(90, 70, 72, .2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.envelope-stocks .stock.active {
+  outline: 1px solid #5a4642;
+  outline-offset: 2px;
 }
 .character-count { align-self: center; color: var(--muted); font-size: .75rem; }
 .watercolor-paper {
@@ -656,13 +795,38 @@ legend {
 @keyframes float { 50% { transform: translateY(-12px) rotate(4deg); } }
 @keyframes bag-breathe { to { transform: scale(1.04) translateY(-5px); } }
 @keyframes dots { from { width: 0; } }
+/* A long, flat swoop: the cup slides in from off-screen left, dips through a
+   shallow arc, and decelerates into place. Keyframe spacing carries the easing
+   so the timing function can stay linear and the motion reads as one glide. */
 @keyframes cup-c-motion {
-  0% { opacity: 0; transform: translate(85%, -70%) rotate(48deg) scale(.58); }
-  45% { opacity: 1; transform: translate(18%, 12%) rotate(14deg) scale(.86); }
-  72% { transform: translate(-4%, 4%) rotate(-4deg) scale(.96); }
-  100% { opacity: 1; transform: none; }
+  0%   { transform: translate(-55vw, 0)       rotate(-28deg) scale(.86); }
+  10%  { transform: translate(-44.6vw, 3.9vw) rotate(-24deg) scale(.877); }
+  20%  { transform: translate(-35.2vw, 6.3vw) rotate(-20deg) scale(.892); }
+  30%  { transform: translate(-27vw, 7vw)     rotate(-16deg) scale(.907); }
+  40%  { transform: translate(-19.8vw, 6.3vw) rotate(-12deg) scale(.923); }
+  50%  { transform: translate(-13.8vw, 4.9vw) rotate(-8deg)  scale(.937); }
+  60%  { transform: translate(-8.8vw, 3.4vw)  rotate(-4deg)  scale(.951); }
+  70%  { transform: translate(-5vw, 2vw)      rotate(0deg)   scale(.964); }
+  80%  { transform: translate(-2.2vw, .9vw)   rotate(5deg)   scale(.977); }
+  90%  { transform: translate(-.6vw, .2vw)    rotate(2deg)   scale(.99); }
+  100% { transform: none; }
+}
+@keyframes tart-spin-in {
+  0% { transform: rotate(-300deg) scale(.62); }
+  72% { transform: rotate(12deg) scale(1.04); }
+  100% { transform: rotate(0) scale(1); }
 }
 @keyframes stamp-press { 50% { transform: scale(.86); } 100% { transform: translateY(-8px); opacity: 0; } }
+@keyframes stamp-press-point {
+  0% { transform: translate(-50%, -72%) scale(1); opacity: 1; }
+  55% { transform: translate(-50%, -50%) scale(.88); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(.92); opacity: 0; }
+}
+@keyframes toast-change {
+  0% { opacity: .2; transform: scale(.96) rotate(-1deg); filter: blur(3px); }
+  65% { opacity: 1; transform: scale(1.015) rotate(.25deg); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1) rotate(0); filter: blur(0); }
+}
 @keyframes unpack { from { opacity: 0; transform: translateY(25px) scale(.97); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -684,7 +848,7 @@ legend {
   .seal-layout { grid-template-columns: 1fr; gap: .5rem; }
   .seal-visual { min-height: 480px; }
   .letter-seal-animation { left: 0; width: 180px; }
-  .ruled-paper { min-height: 460px; padding: 63px 20px 25px 55px; background: linear-gradient(90deg, transparent 43px, #f1acb6 44px, transparent 45px), repeating-linear-gradient(#fff 0 31px, #b8d9ea 32px, #fff 33px); }
+  .css-letter-stage { --letter-scale: min(92vw / 520, .7); }
   .paint-toolbar { flex-direction: column; }
   .paint-swatches { flex-wrap: wrap; justify-content: center; }
   .topping-tray { grid-template-columns: repeat(5, 55px); }
